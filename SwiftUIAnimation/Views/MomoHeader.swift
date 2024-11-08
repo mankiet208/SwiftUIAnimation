@@ -12,11 +12,11 @@ struct MomoHeader: View {
     
     @State var offsetY: CGFloat = 0
     @State var showSearchBar: Bool = false
-
+    
     var body: some View {
         GeometryReader { proxy in
             let safeAreaTop = proxy.safeAreaInsets.top
-
+            
             ScrollView(.vertical, showsIndicators: true) {
                 VStack {
                     Header(safeAreaTop)
@@ -51,8 +51,6 @@ struct MomoHeader: View {
         VStack(spacing: 15) {
             SearchBar(progress)
             FeaturesBar(progress)
-//            Text("\(progress)")
-//            Text("\(offsetY)")
         }
         .overlay(alignment: .topLeading) { // Display search button when shrinked
             Button {
@@ -73,6 +71,18 @@ struct MomoHeader: View {
                 .frame(maxWidth: .infinity)
                 .opacity(showSearchBar ? 1 : 1 + progress)
                 .scaleEffect(isScrollDown ? 1 + offsetY / 1000 : 1, anchor: .top)
+                .mask(
+                    LinearGradient(
+                        gradient: Gradient(
+                            stops: [
+                                .init(color: .black, location: 0.8),
+                                .init(color: .clear, location: 1),
+                            ]
+                        ),
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                )
         }
         .background {
             Rectangle()
@@ -87,11 +97,11 @@ struct MomoHeader: View {
             HStack(spacing: 8) {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.white)
-                                   
+                
                 TextField(
                     "",
                     text: .constant(""),
-                    prompt: Text("Search for account")
+                    prompt: Text("Search doges...")
                         .foregroundColor(.white)
                 )
             }
@@ -103,7 +113,7 @@ struct MomoHeader: View {
                     .opacity(0.5)
             }
             .opacity(showSearchBar ? 1 : 1 + progress)
-
+            
             Button {
                 print("Tap avatar")
             } label: {
@@ -133,21 +143,10 @@ struct MomoHeader: View {
     
     private func FeaturesBar(_ progress: CGFloat) -> some View {
         HStack(spacing: 0) {
-            CustomButton(symbolName: "rectangle.portrait.and.arrow.forward", title: "Deposit") {
-                    
-            }
-            
-            CustomButton(symbolName: "dollarsign", title: "Withdraw") {
-                    
-            }
-            
-            CustomButton(symbolName: "qrcode", title: "QR Code") {
-                    
-            }
-            
-            CustomButton(symbolName: "qrcode.viewfinder", title: "Scanning") {
-                    
-            }
+            CustomButton(symbolName: "rectangle.portrait.and.arrow.forward", title: "Deposit") {}
+            CustomButton(symbolName: "dollarsign.arrow.circlepath", title: "Withdraw") {}
+            CustomButton(symbolName: "qrcode.viewfinder", title: "QR Code") {}
+            CustomButton(symbolName: "creditcard", title: "Your cards") {}
         }
         .padding(.horizontal, -progress * 50) // Shrink buttons bar
         .padding(.top, 10)
@@ -157,10 +156,10 @@ struct MomoHeader: View {
     
     @ViewBuilder
     private func CustomButton(symbolName: String,
-                      title: String,
-                      action: @escaping () -> Void) -> some View {
+                              title: String,
+                              action: @escaping () -> Void) -> some View {
         let progress = calculateHeaderProgress(offsetY / 80)
-
+        
         Button {
             action()
         } label: {
@@ -172,7 +171,7 @@ struct MomoHeader: View {
                     .background {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
                             .fill(.white)
-                }
+                    }
                 
                 Text(title)
                     .font(.caption)
@@ -188,7 +187,7 @@ struct MomoHeader: View {
                     .offset(y: -8)
             }
         }
-
+        
     }
     
     private func IconImage(name symbolName: String) -> some View {
