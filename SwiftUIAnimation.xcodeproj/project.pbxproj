@@ -13,10 +13,10 @@
 		393DE25F2CD8C2830038F2B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 393DE25E2CD8C2830038F2B9 /* Preview Assets.xcassets */; };
 		393DE26B2CD8C2CC0038F2B9 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DE2662CD8C2CC0038F2B9 /* PreferenceKeys.swift */; };
 		393DE26D2CD8C2CC0038F2B9 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DE26A2CD8C2CC0038F2B9 /* View+Extension.swift */; };
-		393DE2762CDCA6340038F2B9 /* MomoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DE2752CDCA6340038F2B9 /* MomoHeader.swift */; };
+		393DE2762CDCA6340038F2B9 /* AnimatedHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DE2752CDCA6340038F2B9 /* AnimatedHeader.swift */; };
 		393DE2792CDCB3F80038F2B9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DE2782CDCB3F80038F2B9 /* Colors.swift */; };
 		393DE27B2CDCB4170038F2B9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DE27A2CDCB4170038F2B9 /* Color+Extension.swift */; };
-		393DE27D2CDCBA6D0038F2B9 /* TransformHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DE27C2CDCBA6D0038F2B9 /* TransformHeader.swift */; };
+		393DE27D2CDCBA6D0038F2B9 /* AnimatedHeader_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DE27C2CDCBA6D0038F2B9 /* AnimatedHeader_1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,10 +27,10 @@
 		393DE25E2CD8C2830038F2B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		393DE2662CD8C2CC0038F2B9 /* PreferenceKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		393DE26A2CD8C2CC0038F2B9 /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		393DE2752CDCA6340038F2B9 /* MomoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomoHeader.swift; sourceTree = "<group>"; };
+		393DE2752CDCA6340038F2B9 /* AnimatedHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedHeader.swift; sourceTree = "<group>"; };
 		393DE2782CDCB3F80038F2B9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		393DE27A2CDCB4170038F2B9 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		393DE27C2CDCBA6D0038F2B9 /* TransformHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformHeader.swift; sourceTree = "<group>"; };
+		393DE27C2CDCBA6D0038F2B9 /* AnimatedHeader_1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedHeader_1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +94,8 @@
 		393DE2672CD8C2CC0038F2B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				393DE27C2CDCBA6D0038F2B9 /* TransformHeader.swift */,
-				393DE2752CDCA6340038F2B9 /* MomoHeader.swift */,
+				393DE2752CDCA6340038F2B9 /* AnimatedHeader.swift */,
+				393DE27C2CDCBA6D0038F2B9 /* AnimatedHeader_1.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,8 +191,8 @@
 				393DE26B2CD8C2CC0038F2B9 /* PreferenceKeys.swift in Sources */,
 				393DE26D2CD8C2CC0038F2B9 /* View+Extension.swift in Sources */,
 				393DE2792CDCB3F80038F2B9 /* Colors.swift in Sources */,
-				393DE2762CDCA6340038F2B9 /* MomoHeader.swift in Sources */,
-				393DE27D2CDCBA6D0038F2B9 /* TransformHeader.swift in Sources */,
+				393DE2762CDCA6340038F2B9 /* AnimatedHeader.swift in Sources */,
+				393DE27D2CDCBA6D0038F2B9 /* AnimatedHeader_1.swift in Sources */,
 				393DE2582CD8C2810038F2B9 /* SwiftUIAnimationApp.swift in Sources */,
 				393DE27B2CDCB4170038F2B9 /* Color+Extension.swift in Sources */,
 			);

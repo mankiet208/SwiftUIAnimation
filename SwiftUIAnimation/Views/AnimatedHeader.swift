@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-struct MomoHeader: View {
+struct AnimatedHeader: View {
     let COORDINATE_SPACE = "SCROLL"
     
     @State var offsetY: CGFloat = 0
-    @State var showSearchBar: Bool = false
     
     var body: some View {
         GeometryReader { proxy in
@@ -35,7 +34,6 @@ struct MomoHeader: View {
                 }
                 .offset(coordinateSpace: .named(COORDINATE_SPACE)) { value in
                     offsetY = value
-                    showSearchBar = (-value > 80) && showSearchBar
                 }
             }
             .coordinateSpace(name: COORDINATE_SPACE)
@@ -47,21 +45,20 @@ struct MomoHeader: View {
     private func Header(_ safeAreaTop: CGFloat) -> some View {
         let progress = calculateHeaderProgress(offsetY / 80)
         let isScrollDown = offsetY > 0
-        
+                
         VStack(spacing: 15) {
             SearchBar(progress)
             FeaturesBar(progress)
         }
         .overlay(alignment: .topLeading) { // Display search button when shrinked
             Button {
-                showSearchBar = true
+
             } label: {
                 IconImage(name: "magnifyingglass")
             }
             .offset(x: 13, y: 10)
-            .opacity(showSearchBar ? 0 : -progress)
+            .opacity(-progress)
         }
-        .animation(.easeInOut(duration: 0.2), value: showSearchBar)
         .environment(\.colorScheme, .dark)
         .padding([.horizontal, .bottom], 15)
         .padding(.top, safeAreaTop)
@@ -69,7 +66,7 @@ struct MomoHeader: View {
             Image("doge")
                 .resizable()
                 .frame(maxWidth: .infinity)
-                .opacity(showSearchBar ? 1 : 1 + progress)
+                .opacity(1 + progress)
                 .scaleEffect(isScrollDown ? 1 + offsetY / 1000 : 1, anchor: .top)
                 .mask(
                     LinearGradient(
@@ -88,7 +85,7 @@ struct MomoHeader: View {
             Rectangle()
                 .fill(AppColor.dogeColor)
                 .padding(.bottom, 80)
-                .opacity(showSearchBar ? 0 : -progress)
+                .opacity(max(0, -progress))
         }
     }
     
@@ -112,10 +109,10 @@ struct MomoHeader: View {
                     .fill(.black)
                     .opacity(0.5)
             }
-            .opacity(showSearchBar ? 1 : 1 + progress)
+            .opacity(1 + progress)
             
             Button {
-                print("Tap avatar")
+
             } label: {
                 Image("doge")
                     .resizable()
@@ -127,16 +124,6 @@ struct MomoHeader: View {
                             .fill(.white)
                             .padding(-2)
                     }
-            }
-            .opacity(showSearchBar ? 0 : 1)
-            .overlay { // Display "x" button
-                if showSearchBar {
-                    Button {
-                        showSearchBar = false
-                    } label: {
-                        IconImage(name: "xmark")
-                    }
-                }
             }
         }
     }
@@ -151,7 +138,6 @@ struct MomoHeader: View {
         .padding(.horizontal, -progress * 50) // Shrink buttons bar
         .padding(.top, 10)
         .offset(y: progress * 65) // Move buttons up when scroll up
-        .opacity(showSearchBar ? 0 : 1)
     }
     
     @ViewBuilder
@@ -203,8 +189,8 @@ struct MomoHeader: View {
     }
 }
 
-struct MomoHeader_Previews: PreviewProvider {
+struct AnimatedHeader_Previews: PreviewProvider {
     static var previews: some View {
-        MomoHeader()
+        AnimatedHeader()
     }
 }

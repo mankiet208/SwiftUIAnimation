@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TransformHeader: View {
+struct AnimatedHeader_1: View {
     let COORDINATE_SPACE = "SCROLL"
     
     @State var offsetY: CGFloat = 0
@@ -182,9 +182,9 @@ struct TransformHeader: View {
     }
 }
 
-struct TransformHeader_Previews: PreviewProvider {
+struct AnimatedHeader_1_Previews: PreviewProvider {
     static var previews: some View {
-        TransformHeader()
+        AnimatedHeader_1()
     }
 }
 
